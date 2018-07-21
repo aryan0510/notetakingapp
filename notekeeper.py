@@ -8,7 +8,7 @@ root.title('Notekeeper')
 
 # database
 try:
-    con = pm.connect(host='localhost', database='notes', user='root', password='12345')
+    con = pm.connect(host='localhost', database='project', user='root', password='root123')
     cursor = con.cursor()
     
 
