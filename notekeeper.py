@@ -3,7 +3,7 @@ from tkinter import messagebox
 import pymysql as pm
 
 root = Tk()
-root.geometry('600x700')
+root.geometry('700x800')
 root.title('Note Taking App')
 
 # database
@@ -128,7 +128,7 @@ try:
             t3.delete("1.0", END)
             e3.delete(0, 'end')
 
-        b8 = Button(r2, text='Save', bg='red', width=20, command=UPDATE_DB)
+        b8 = Button(r2, text='Save', width=20, command=UPDATE_DB)
         b8.place(x=150, y=440)
 
         def VIEW():
@@ -144,7 +144,7 @@ try:
         b10 = Button(r2, text='CHANGE FILE',bg='red', command=VIEW)
         b10.place(x=300, y=25)
 
-        b9 = Button(r2, text='Exit', bg='red', width=15, command=r2.destroy)
+        b9 = Button(r2, text='Exit', width=15, command=r2.destroy)
         b9.place(x=380, y=440)
 
 
@@ -180,10 +180,10 @@ try:
                 else:
                     messagebox.showinfo("NO NOTES IS AVAILABLE")
 
-        b9 = Button(r3, text='DELETE',bg='red', width=17, command=DELETE_DB)
+        b9 = Button(r3, text='DELETE', width=17, command=DELETE_DB)
         b9.place(x=20, y=70)
 
-        b11 = Button(r3, text='DELETE All', width=17, bg='red', command=DELETE_ALL_DB)
+        b11 = Button(r3, text='DELETE All', width=17, command=DELETE_ALL_DB)
         b11.place(x=180, y=70)
 
 
@@ -208,27 +208,27 @@ try:
                         t4.insert(END, "NOTES TITLE: " + row[0])
 
             else:
-                messagebox.showinfo("SORRY!!..NO RESULT FOUND D:")
+                messagebox.showinfo("SORRY!NO RESULT FOUND")
             t1.config(state=DISABLED)
 
 
     ####MAIN WINDOW WIDGETS####
 
     #adding new notes
-    b1 = Button(root, text='Add New Note>>', height=2, width=30, bg='red', foreground='white',font=('times', 10, 'bold'))
+    b1 = Button(root, text='Add New Note>>', height=2, width=30,font=('times', 10, 'bold'))
     b1.config(command=ADD_NOTES)
     b1.place(x=20, y=20)
 
     #listing all notes
-    b2 = Button(root, text='List All Notes>>', height=2, width=30, bg='red', foreground='white',font=('times', 10, 'bold'), command=LIST_NOTES)
+    b2 = Button(root, text='List All Notes>>', height=2, width=30,font=('times', 10, 'bold'), command=LIST_NOTES)
     b2.place(x=320, y=20)
 
     #updating notes
-    b6 = Button(root, text='Update Notes>>', height=2, width=30, bg='red', foreground='white',font=('times', 10, 'bold'), command=UPDATES)
+    b6 = Button(root, text='Update Notes>>', height=2, width=30,font=('times', 10, 'bold'), command=UPDATES)
     b6.place(x=20, y=70)
 
     #deleting notes
-    b7 = Button(root, text='Delete Notes>>', height=2, width=30, bg='red', foreground='white',font=('times', 10, 'bold'), command=DELETE)
+    b7 = Button(root, text='Delete Notes>>', height=2, width=30,font=('times', 10, 'bold'), command=DELETE)
     b7.place(x=320, y=70)
 
     l1 = Label(root, text='Search Notes', font=('times', 20, 'bold'))
@@ -239,22 +239,22 @@ try:
     e1 = Entry(root, width=40, font=large_font)
     e1.place(x=20, y=185)
 
-    b3 = Button(root, text='Search', height=1, width=15, bg='red', foreground='white', font=('times', 10, 'bold'))
+    b3 = Button(root, text='Search', height=1, width=15, font=('times', 10, 'bold'))
     b3.config(command=SEARCH_NOTES)
     b3.place(x=430, y=185)
 
-    l2 = Label(root, text='--Notes--', font=('times', 15, 'bold'))
+    l2 = Label(root, text='Notes', font=('times', 15, 'bold'))
     l2.place(x=250, y=250)
 
     # text box to view heading
-    t4 = Text(root, height=2, width=70, bg='white', state=DISABLED)
+    t4 = Text(root, height=2, width=70, state=DISABLED)
     t4.place(x=0, y=280)
 
     # text box to view notes
     s1 = Scrollbar(root)
     s1.place(x=570, y=320)
     s5 = Scrollbar(root, orient=HORIZONTAL)
-    t1 = Text(root, wrap=NONE, height=20, width=70, bg='white', state=DISABLED, yscrollcommand=s1.set,xscrollcommand=s5.set)
+    t1 = Text(root, wrap=NONE, height=20, width=70, state=DISABLED, yscrollcommand=s1.set,xscrollcommand=s5.set)
     s1.config(command=t1.yview)
     s5.config(command=t1.xview)
     s5.place(x=0, y=640)
