@@ -4,14 +4,13 @@ import pymysql as pm
 
 root = Tk()
 root.geometry('700x800')
-root.title('Note Taking App')
+root.title('Notekeeper')
 
 # database
 try:
     con = pm.connect(host='localhost', database='notes', user='root', password='12345')
     cursor = con.cursor()
-    #q1 = 'create table tb1(note_title varchar(40) primary key,notes varchar(1000))'
-    #cursor.execute(q)
+    
 
 
     # function for adding new notes
@@ -212,7 +211,7 @@ try:
             t1.config(state=DISABLED)
 
 
-    ####MAIN WINDOW WIDGETS####
+    #frontend
 
     #adding new notes
     b1 = Button(root, text='Add New Note>>', height=2, width=30,font=('times', 10, 'bold'))
